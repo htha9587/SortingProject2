@@ -1,7 +1,7 @@
 package sorting2Controller;
 
 /**
- * Version 0.2
+ * Version 0.3
  * @author htha9587
  *4-11-16
  */
@@ -10,39 +10,25 @@ import java.io.*;
 import java.util.*;
 
 
-public class Ship implements Comparable<Ship>
+ class Ship implements Comparable
 {
-	private int name;
-	private String ModelNumber;
-	private int Population;
-	
-	public void start()
+	String name;
+	int ModelNumber;
+	int Population;
+	Ship(int ModelNumber, String name, int Population)
 	{
-		ArrayList al = new ArrayList();
-		al.add(new Ship(101, "Ronaldo", 50000));
-		al.add(new Ship(345, "Cygnus",60000));
-		al.add(new Ship(222, "Titenic", 70000));
+		this.name = name;
+		this.ModelNumber = ModelNumber;
+		this.Population = Population;
 	}
 	
-	public Ship(int i, String string, int j)
+	public int compareTo(Object other)
 	{
-		this.name = i;
-		this.ModelNumber = string;
-		this.Population = j;
-	}
-	
-	
-	public Ship(Object object, int i, Object object2) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public int compareTo(Ship other)
-	{
-		Ship al = (Ship)other;
-		if(Population== al.Population)
+		Ship sh = (Ship)other;
+		if(Population== sh.Population)
 			return 0;
 		
-		else if(Population>al.compareTo(other))
+		else if(Population>sh.compareTo(other))
 		{
 			return 1;
 		}
@@ -50,14 +36,7 @@ public class Ship implements Comparable<Ship>
 			return -1;
 		
 	}
-	
-	public String toString()
-	{
-		String s = "Ship name: "+ name+"\nModel Number: "+ModelNumber+"\nPopulation: "+Population;
-			return s;
-		
-	}
-	
-	
+
+
 	
 }
